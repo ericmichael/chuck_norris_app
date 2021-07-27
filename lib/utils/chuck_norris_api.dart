@@ -3,8 +3,9 @@ import 'dart:convert';
 
 class ChuckNorrisAPI {
   static Future<String> fetchJoke(http.Client client) async {
-    final response =
-        await client.get('http://api.icndb.com/jokes/random?escape=javascript');
+    var url = Uri.parse(
+        'http://api.icndb.com/jokes/random?escape=javascript&exclude=[explicit]');
+    final response = await client.get(url);
 
     if (response.statusCode == 200) {
       Map<String, dynamic> json = jsonDecode(response.body);

@@ -1,9 +1,6 @@
 // Imports the Flutter Driver API.
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
-import 'package:chuck_norris_jokes/config/globals.dart' as globals;
-import 'package:mockito/mockito.dart';
-import 'package:http/http.dart' as http;
 
 void main() {
   group('Chuck Norris Joke App', () {

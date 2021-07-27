@@ -14,7 +14,9 @@ void main() {
 
   final fakeJokeAPIData =
       '{ "type": "success", "value": { "id": 461, "joke": "Chuck Norris finished World of Warcraft.", "categories": ["nerdy"] } }';
-  when(client.get('http://api.icndb.com/jokes/random?escape=javascript'))
+  var url = Uri.parse(
+      'http://api.icndb.com/jokes/random?escape=javascript&exclude=[explicit]');
+  when(client.get(url))
       .thenAnswer((_) async => http.Response(fakeJokeAPIData, 200));
 
   globals.httpClient = client;

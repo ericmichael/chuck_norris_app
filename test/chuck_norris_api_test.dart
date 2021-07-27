@@ -13,9 +13,11 @@ main() {
       final client = MockClient();
       final fakeJokeAPIData =
           '{ "type": "success", "value": { "id": 461, "joke": "Chuck Norris finished World of Warcraft.", "categories": ["nerdy"] } }';
+      var url = Uri.parse(
+          'http://api.icndb.com/jokes/random?escape=javascript&exclude=[explicit]');
       // Use Mockito to return a successful response when it calls the
       // provided http.Client.
-      when(client.get('http://api.icndb.com/jokes/random?escape=javascript'))
+      when(client.get(url))
           .thenAnswer((_) async => http.Response(fakeJokeAPIData, 200));
 
       //the extracted data from JSON
@@ -33,7 +35,9 @@ main() {
 
       // Use Mockito to return an unsuccessful response when it calls the
       // provided http.Client.
-      when(client.get('http://api.icndb.com/jokes/random?escape=javascript'))
+      var url = Uri.parse(
+          'http://api.icndb.com/jokes/random?escape=javascript&exclude=[explicit]');
+      when(client.get(url))
           .thenAnswer((_) async => http.Response('Not Found', 404));
 
       expect(ChuckNorrisAPI.fetchJoke(client), throwsException);
