@@ -27,7 +27,7 @@ void main() {
       // Use Mockito to return a successful response when it calls the
       // provided http.Client.
       expect(await driver.getText(jokeTextFinder),
-          "Chuck Norris finished World of Warcraft.");
+          "Chuck Norris knows the last digit of PI.");
     });
   });
 }

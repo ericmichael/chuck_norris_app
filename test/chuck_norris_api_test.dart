@@ -12,7 +12,7 @@ main() {
     test('returns a String if the http call completes successfully', () async {
       final client = MockClient();
       final fakeJokeAPIData =
-          '{ "categories": ["dev"], "created_at": "2020-01-05 13:42:19.324003", "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png", "id": "yrvjrpx3t4qxqmowpyvxbq","updated_at": "2020-01-05 13:42:19.324003", "url": "https://api.chucknorris.io/jokes/yrvjrpx3t4qxqmowpyvxbq", "value": "Chuck Norris protocol design method has no status, requests or responses, only commands."}';
+          '{ "categories": ["dev"], "created_at": "2020-01-05 13:42:19.324003", "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png", "id": "yrvjrpx3t4qxqmowpyvxbq","updated_at": "2020-01-05 13:42:19.324003", "url": "https://api.chucknorris.io/jokes/yrvjrpx3t4qxqmowpyvxbq", "value": "Chuck Norris knows the last digit of PI."}';
 
       var url =
           Uri.parse('https://api.chucknorris.io/jokes/random?category=dev');
@@ -28,8 +28,7 @@ main() {
       expect(joke, isA<String>());
 
       //does the extracted value match our fake data?
-      expect(joke,
-          "Chuck Norris protocol design method has no status, requests or responses, only commands.");
+      expect(joke, "Chuck Norris knows the last digit of PI.");
     });
 
     test('throws an exception if the http call completes with an error', () {

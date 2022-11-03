@@ -13,9 +13,8 @@ void main() {
   final MockClient client = MockClient();
 
   final fakeJokeAPIData =
-      '{ "type": "success", "value": { "id": 461, "joke": "Chuck Norris finished World of Warcraft.", "categories": ["nerdy"] } }';
-  var url = Uri.parse(
-      'http://api.icndb.com/jokes/random?escape=javascript&exclude=[explicit]');
+      '{ "categories": ["dev"], "created_at": "2020-01-05 13:42:19.324003", "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png", "id": "yrvjrpx3t4qxqmowpyvxbq","updated_at": "2020-01-05 13:42:19.324003", "url": "https://api.chucknorris.io/jokes/yrvjrpx3t4qxqmowpyvxbq", "value": "Chuck Norris knows the last digit of PI."}';
+  var url = Uri.parse('https://api.chucknorris.io/jokes/random?category=dev');
   when(client.get(url))
       .thenAnswer((_) async => http.Response(fakeJokeAPIData, 200));
 
